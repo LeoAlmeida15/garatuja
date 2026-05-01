@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogo da Cobrinha</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Jogo da Cobrinha</h1>
+      <p>Use as setas do teclado ou WASD para controlar a cobra.</p>
+    </header>
 
+    <section class="interface">
+      <div class="info-card">
+        <strong>Pontos:</strong>
+        <span id="score">0</span>
+      </div>
+      <div class="info-card">
+        <strong>Nível:</strong>
+        <span id="level">1</span>
+      </div>
+      <div class="info-card">
+        <strong>Status:</strong>
+        <span id="status">Pronto</span>
+      </div>
+    </section>
+
+    <main>
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <div class="controls">
+        <button id="startBtn">Iniciar</button>
+        <button id="pauseBtn" disabled>Pausar</button>
+        <button id="restartBtn" disabled>Reiniciar</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>Bom jogo! Evite bater nas paredes e no próprio corpo.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
