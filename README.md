@@ -112,7 +112,6 @@ Resposta:
 Abstração em POO é o conceito de esconder detalhes internos de funcionamento e mostrar 
 apenas o que é necessário para usar um objeto. Ela facilita o uso e a organização do 
 código, focando apenas nas funções importantes.
-Exemplo:
 
 2-O que é composição?
 
