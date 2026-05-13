@@ -1,22 +1,24 @@
-const containerAdicionar = document.querySelector('.adicionar');
+const containerAdicionar = document.querySelector('.adicionar')
 const btnAdicionar = containerAdicionar.querySelector('button')
 const inputAdicionar = containerAdicionar.querySelector('input')
 const containerTarefas = document.querySelector('.tarefas')
 const templateTarefa = containerTarefas.querySelector('template')
 
 function salvarTarefas() {
-    const nodeListTarefas = containerTarefas.querySelectorAll(':scope>.tarefa span')
-    const arrayTarefas = Array.from(nodeListTarefas).map((el) => el.textContent)
+    const nodeListTarefas = containerTarefas.querySelectorAll(':scope > .tarefa span')
+    const arrayTarefas = Array.from(nodeListTarefas).map(span => span.textContent)
     const stringTarefas = JSON.stringify(arrayTarefas)
     localStorage.setItem('tarefas', stringTarefas)
 }
+
 function carregarTarefas() {
     const stringTarefas = localStorage.getItem('tarefas')
     const arrayTarefas = JSON.parse(stringTarefas) || []
-    arrayTarefas.forEach(elTxt => criarTarefa(elTxt))
+    arrayTarefas.forEach(criarTarefa)
 }
+
 function criarTarefa(texto) {
-    if (texto.trim() === "") return
+    if (texto.trim() === '') return
     const tarefa = templateTarefa.content.cloneNode(true)
     const spanTitle = tarefa.querySelector('span')
     const btnExcluir = tarefa.querySelector('button')
@@ -25,8 +27,8 @@ function criarTarefa(texto) {
         btnExcluir.closest('.tarefa').remove()
         salvarTarefas()
     })
-    containerTarefas.appendChild('tarefas')
-    salvarTarefas
+    containerTarefas.appendChild(tarefa)
+    salvarTarefas()
 }
 
 btnAdicionar.addEventListener('click', () => {
@@ -35,8 +37,9 @@ btnAdicionar.addEventListener('click', () => {
     inputAdicionar.value = ''
 })
 
-inputAdicionar.addEventListener('keypress', (event) => {
-    if (event.key !== 'Enter') return
-    btnAdicionar.click();
+inputAdicionar.addEventListener('keypress', (e) => {
+    if (e.key !== 'Enter') return
+    btnAdicionar.click()
 })
+
 carregarTarefas()
